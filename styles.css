@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+@font-face {
+  font-family: 'Brandon Grotesque';
+  font-weight: bold;
+  src: url("fonts/brandon-grotesque-black.otf") format("opentype");
+}
+
+:root {
+  --cyan: #0084ac;
+  --orange: #ff6900;
+  --green: #7cb82f;
+  --black: #333333;
+  --darkgray: #888888;
+  --lightgray: #b2b2b2;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.5;
+  color: var(--black);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Brandon Grotesque', Arial, Helvetica, sans-serif;
+}
+
+.header {
+  max-height: 80px;
+  height: 80px;
+  width: 100%;
+  background-color: var(--lightgray);
+}
+
+.atf {
+  width: 100%;
+  padding: 1.5rem 2rem 2rem;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 1024px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 1em;
+  margin: 0;
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+  padding: 1em 0 1.5em;
+  color: var(--lightgray);
+  font-weight: bold;
+  position: relative;
+}
+
+.row::after {
+  content: '';
+  display: block;
+  width: 100%;
+  border-bottom: 1px solid var(--black);
+  position: absolute;
+  bottom: 0;
+}
+
+.row > *:not(:last-child) {
+  padding-right: 2em;
+}
+
+.link {
+  color: var(--orange)
+}
+
+.articles {
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem 2rem 2rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  box-sizing: border-box;
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  margin-bottom: 2rem;
+}
+
+.grid .el {
+  grid-column: span 1;
+  position: relative;
+  background: white;
+  box-shadow: 0 .5em 1em 0 rgba(0, 0, 0, 0.15);
+}
+
+.el:first-child {
+  grid-column: span 2;
+}
+
+
+.grid .el .el--featured {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 0.75em;
+  padding: 0.25em 0.5em;
+  background-color: var(--lightgray);
+  color: white;
+}
+
+.grid .el .el--featured i {
+  padding-right: 0.5em;
+}
+
+.grid .el.featured .el--featured {
+  display: initial;
+}
+
+.grid .el .el--img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center;
+  height: 150px;
+  box-sizing: border-box;
+
+}
+
+.el--text {
+  padding: 1em;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+}
+.el--text > :not(:last-child) {
+  padding-bottom: 1.5em;
+}
+
+.el--text > * {
+  margin: 0;
+}
+
+.el--tag {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-family: 'Brandon Grotesque';
+  color:  var(--darkgray);
+  position: relative;
+}
+
+.el--tag::after {
+  display: block;
+  content: '';
+  width: 2em;
+  position: absolute;
+  bottom: .75em;
+  left: 50%;
+  transform: translate(-50%);
+  background-color: var(--lightgray);
+  height: 0.25em;
+}
+
+
+.el:first-child .el--title {
+  font-size: 2em;
+}
+
+.el.video .el--featured,
+.el.video .el--tag::after {
+  background-color: var(--cyan)
+}
+
+.el.podcast .el--featured,
+.el.podcast .el--tag::after {
+  background-color: var(--orange)
+}
+
+.el.article .el--featured,
+.el.article .el--tag::after {
+  background-color: var(--green)
+}
+.el.featured .el--img {
+  border: 3px solid var(--lightgray);
+}
+
+.el.video .el--img {
+  border-color: var(--cyan)
+}
+
+.el.podcast .el--img {
+  border-color: var(--orange)
+}
+
+.el.article .el--img {
+  border-color: var(--green)
+}
+
+.btn {
+  border-radius: 2em;
+  padding: 0.5em 2.5em;
+  border: 1px solir var(--orange);
+  background-color: var(--orange);
+  color: white;
+  font-weight: bold;
+  font-family: 'Brandon Grotesque';
+}
+
+@media screen and (max-width: 480px) {
+  .articles, .atf {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  .row {
+    flex-wrap: wrap;
+  }
+
+  .learn {
+    flex: 0 0 100%;
+    padding-bottom: 1em;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .el:first-child {
+    grid-column: span 1;
+  }
+}
+
+.footer {
+  max-height: 320px;
+  height: 320px;
+  width: 100%;
+  background-color: var(--darkgray);
+}
