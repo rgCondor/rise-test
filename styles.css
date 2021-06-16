@@ -234,8 +234,15 @@ input {
   display: initial;
 }
 
-.grid .el .el--img {
+.el--img-wrapper {
   height: 150px;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.el--img {
+  height: 100%;
   object-fit: cover;
   object-position: center;
   width: 100%;
@@ -313,19 +320,19 @@ input {
 .el.article .el--tag::after {
   background-color: var(--green);
 }
-.el.featured .el--img {
-  border: 3px solid var(--lightgray);
+.el.featured .el--img-wrapper {
+  border: 4px solid var(--lightgray);
 }
 
-.el.video .el--img {
+.el.video .el--img-wrapper {
   border-color: var(--cyan);
 }
 
-.el.podcast .el--img {
+.el.podcast .el--img-wrapper {
   border-color: var(--orange);
 }
 
-.el.article .el--img {
+.el.article .el--img-wrapper {
   border-color: var(--green);
 }
 
